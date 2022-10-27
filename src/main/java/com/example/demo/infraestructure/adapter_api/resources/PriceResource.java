@@ -1,6 +1,6 @@
 package com.example.demo.infraestructure.adapter_api.resources;
 
-import com.example.demo.application.ports.PriceService;
+import com.example.demo.application.primary_ports.PriceService;
 import com.example.demo.infraestructure.adapter_api.dtos.PriceDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;

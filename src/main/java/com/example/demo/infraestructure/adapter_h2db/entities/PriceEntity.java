@@ -1,5 +1,6 @@
 package com.example.demo.infraestructure.adapter_h2db.entities;
 
+import com.example.demo.domain.models.Price;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -50,4 +51,16 @@ public class PriceEntity {
     @NotBlank
     private String currency;
 
+    public Price toPrice() {
+        return Price.builder()
+                .brandId(this.brandId)
+                .productId(this.productId)
+                .startDate(this.startDate)
+                .endDate(this.endDate)
+                .priceList(this.priceList)
+                .priority(this.priority)
+                .priceValue(this.priceValue)
+                .currency(this.currency)
+                .build();
+    }
 }
