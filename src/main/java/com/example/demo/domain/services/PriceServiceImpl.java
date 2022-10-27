@@ -1,6 +1,7 @@
 package com.example.demo.domain.services;
 
 import com.example.demo.application.primary_ports.PriceService;
+import com.example.demo.domain.exceptions.CurrentPriceNotFoundException;
 import com.example.demo.domain.models.Price;
 import com.example.demo.domain.repository_ports.PriceRepositoryPort;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,6 @@ public class PriceServiceImpl implements PriceService {
                 .stream()
                 .sorted(Comparator.comparing(Price::getStartDate).reversed())
                 .findFirst()
-                .orElseThrow();
+                .orElseThrow(() -> new CurrentPriceNotFoundException(brandId, productId, applicationDate));
     }
 }
