@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-public class h2dbSeeder {
+public class H2dbSeeder {
     private static final Long ZARA_BRAND = 1L;
     private static final Long PRODUCT_ID = 35455L;
     private static final String EUR = "EUR";
