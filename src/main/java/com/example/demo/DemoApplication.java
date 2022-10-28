@@ -10,8 +10,8 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 		ConfigurableApplicationContext app = SpringApplication.run(DemoApplication.class, args);
-		H2dbSeeder seederDBService = (H2dbSeeder) app.getBean("h2dbSeeder");
-		seederDBService.populateDB();
+		H2dbSeeder h2dbSeeder = (H2dbSeeder) app.getBean("h2dbSeeder");
+		h2dbSeeder.populateDB();
 	}
 
 }
