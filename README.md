@@ -1,6 +1,7 @@
 # Commerce API
 ## Estado del código
- 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=alejandrorsanchez_commerce&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=alejandrorsanchez_commerce)
+
 
 Construir una aplicación/servicio en SpringBoot que provea una end point rest de
 consulta tal que:
