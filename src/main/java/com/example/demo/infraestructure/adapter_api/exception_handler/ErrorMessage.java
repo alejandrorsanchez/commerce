@@ -1,5 +1,8 @@
 package com.example.demo.infraestructure.adapter_api.exception_handler;
 
+import lombok.Data;
+
+@Data
 public class ErrorMessage {
 
     private String error;
@@ -9,4 +12,5 @@ public class ErrorMessage {
         this.error = exception.getClass().getSimpleName();
         this.message = exception.getMessage();
     }
+
 }
