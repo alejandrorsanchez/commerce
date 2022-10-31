@@ -1,6 +1,6 @@
 # Commerce API
 ## Estado del código
-
+ 
 
 Construir una aplicación/servicio en SpringBoot que provea una end point rest de
 consulta tal que:
