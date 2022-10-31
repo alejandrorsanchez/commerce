@@ -15,14 +15,13 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @TestPropertySource(
         locations = "classpath:test.properties")
-public class PriceServiceImplTest {
+class PriceServiceImplTest {
 
     private static final Long BRAND_ID = 1L;
     private static final Long PRODUCT_ID = 35455L;
@@ -46,9 +45,9 @@ public class PriceServiceImplTest {
 
     @Test
     void findCurrentPriceThrowsCurrentPriceNotFoundExceptionTest(){
-        assertThrows(CurrentPriceNotFoundException.class, () -> {
-            priceServiceImpl.findCurrentPrice(BRAND_ID, PRODUCT_ID, APPLICATION_DATE_OUT_RANGE);
-        });
+        assertThrows(CurrentPriceNotFoundException.class, () ->
+                priceServiceImpl.findCurrentPrice(BRAND_ID, PRODUCT_ID, APPLICATION_DATE_OUT_RANGE)
+        );
     }
 
     @Test
@@ -78,7 +77,7 @@ public class PriceServiceImplTest {
 
     private void verifyCorrectPriceForApplicationDate(LocalDateTime applicationDate, BigDecimal expectedPrice) {
         Price price = priceServiceImpl.findCurrentPrice(BRAND_ID, PRODUCT_ID, applicationDate);
-        assertTrue(price.getPriceValue().compareTo(expectedPrice) == 0);
+        assertEquals(0, price.getPriceValue().compareTo(expectedPrice));
     }
 
 }

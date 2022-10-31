@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Repository
 public class PriceRepositoryH2Adapter implements PriceRepositoryPort {
@@ -23,6 +22,6 @@ public class PriceRepositoryH2Adapter implements PriceRepositoryPort {
                 .findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThan(brandId, productId, applicationDate, applicationDate)
                 .stream()
                 .map(PriceEntity::toPrice)
-                .collect(Collectors.toList());
+                .toList();
     }
 }

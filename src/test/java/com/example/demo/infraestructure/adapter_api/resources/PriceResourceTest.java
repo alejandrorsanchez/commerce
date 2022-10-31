@@ -14,13 +14,13 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @TestPropertySource(
         locations = "classpath:test.properties")
-public class PriceResourceTest {
+class PriceResourceTest {
 
     private static final Long BRAND_ID = 1L;
     private static final Long PRODUCT_ID = 35455L;
@@ -68,7 +68,7 @@ public class PriceResourceTest {
 
     private void verifyCorrectPriceForApplicationDate(LocalDateTime applicationDate, BigDecimal expectedPrice) {
         PriceDTO priceDTO = priceResource.findCurrentPrice(BRAND_ID, PRODUCT_ID, applicationDate);
-        assertTrue(priceDTO.getPriceValue().compareTo(expectedPrice) == 0);
+        assertEquals(0, priceDTO.getPriceValue().compareTo(expectedPrice));
     }
 
 }
