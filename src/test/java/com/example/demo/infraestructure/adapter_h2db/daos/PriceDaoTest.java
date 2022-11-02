@@ -22,14 +22,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @TestPropertySource(
         locations = "classpath:test.properties")
 class PriceDaoTest {
-
     private static final Long BRAND_ID = 1L;
     private static final Long PRODUCT_ID = 35455L;
-    private final LocalDateTime APPLICATION_DATE1 = LocalDateTime.of(2020, 6, 14, 10, 0, 0);
-    private final LocalDateTime APPLICATION_DATE2 = LocalDateTime.of(2020, 6, 14, 16, 0, 0);
-    private final LocalDateTime APPLICATION_DATE3 = LocalDateTime.of(2020, 6, 14, 21, 0, 0);
-    private final LocalDateTime APPLICATION_DATE4 = LocalDateTime.of(2020, 6, 15, 10, 0, 0);
-    private final LocalDateTime APPLICATION_DATE5 = LocalDateTime.of(2020, 6, 16, 21, 0, 0);
 
     @Autowired
     PriceDao priceDao;
@@ -44,7 +38,8 @@ class PriceDaoTest {
 
     @Test
     void findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThanDay14Hour10Test(){
-        List<PriceEntity> prices = priceDao.findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThan(BRAND_ID, PRODUCT_ID, APPLICATION_DATE1, APPLICATION_DATE1);
+        final LocalDateTime APPLICATION_DATE = LocalDateTime.of(2020, 6, 14, 10, 0, 0);
+        List<PriceEntity> prices = priceDao.findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThan(BRAND_ID, PRODUCT_ID, APPLICATION_DATE, APPLICATION_DATE);
         assertEquals(1, prices.size());
         assertEquals(0, (prices.stream()
                                         .findFirst()
@@ -55,13 +50,15 @@ class PriceDaoTest {
 
     @Test
     void findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThanDay14Hour16Test(){
-        List<PriceEntity> prices = priceDao.findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThan(BRAND_ID, PRODUCT_ID, APPLICATION_DATE2, APPLICATION_DATE2);
+        final LocalDateTime APPLICATION_DATE = LocalDateTime.of(2020, 6, 14, 16, 0, 0);
+        List<PriceEntity> prices = priceDao.findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThan(BRAND_ID, PRODUCT_ID, APPLICATION_DATE, APPLICATION_DATE);
         assertEquals(2, prices.size());
     }
 
     @Test
     void findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThanDay14Hour21Test(){
-        List<PriceEntity> prices = priceDao.findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThan(BRAND_ID, PRODUCT_ID, APPLICATION_DATE3, APPLICATION_DATE3);
+        final LocalDateTime APPLICATION_DATE = LocalDateTime.of(2020, 6, 14, 21, 0, 0);
+        List<PriceEntity> prices = priceDao.findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThan(BRAND_ID, PRODUCT_ID, APPLICATION_DATE, APPLICATION_DATE);
         assertEquals(1, prices.size());
         assertEquals(0, (prices.stream()
                                         .findFirst()
@@ -72,13 +69,15 @@ class PriceDaoTest {
 
     @Test
     void findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThanDay15Hour10Test(){
-        List<PriceEntity> prices = priceDao.findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThan(BRAND_ID, PRODUCT_ID, APPLICATION_DATE4, APPLICATION_DATE4);
+        final LocalDateTime APPLICATION_DATE = LocalDateTime.of(2020, 6, 15, 10, 0, 0);
+        List<PriceEntity> prices = priceDao.findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThan(BRAND_ID, PRODUCT_ID, APPLICATION_DATE, APPLICATION_DATE);
         assertEquals(2, prices.size());
     }
 
     @Test
     void findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThanDay16Hour21Test(){
-        List<PriceEntity> prices = priceDao.findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThan(BRAND_ID, PRODUCT_ID, APPLICATION_DATE5, APPLICATION_DATE5);
+        final LocalDateTime APPLICATION_DATE = LocalDateTime.of(2020, 6, 16, 21, 0, 0);
+        List<PriceEntity> prices = priceDao.findByBrandIdAndProductIdAndStartDateLessThanAndEndDateGreaterThan(BRAND_ID, PRODUCT_ID, APPLICATION_DATE, APPLICATION_DATE);
         assertEquals(2, prices.size());
     }
 

@@ -23,7 +23,7 @@ public class PriceDTO {
     private BigDecimal priceValue;
 
     public PriceDTO(Price price){
-         this.brandId = price.getBrandId();
+        this.brandId = price.getBrandId();
         this.productId = price.getProductId();
         this.startDate = price.getStartDate();
         this.endDate = price.getEndDate();
