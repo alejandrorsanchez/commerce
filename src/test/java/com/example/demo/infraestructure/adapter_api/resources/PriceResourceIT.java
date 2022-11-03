@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @AutoConfigureWebTestClient
 @TestPropertySource(
         locations = "classpath:test.properties")
-public class PriceResourceIT {
+class PriceResourceIT {
 
     public static final long BRAND_ID = 1L;
     public static final long PRODUCT_ID = 35455L;
